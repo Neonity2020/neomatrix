@@ -1,0 +1,164 @@
+---
+const features = [
+  {
+    icon: '🧠',
+    title: '超级个体训练营',
+    desc: '认知升级 × AI 增强 × 技能复利。系统化方法帮你构建属于自己的竞争壁垒，而不是追逐别人的成功路径。',
+    color: '#6D28D9',
+  },
+  {
+    icon: '🌱',
+    title: '终身成长操作系统',
+    desc: '不是随机学习，而是建立一套可复用的知识获取、内化和输出体系，让每一小时的投入都产生复利效果。',
+    color: '#10B981',
+  },
+  {
+    icon: '🚀',
+    title: '一人公司实战手册',
+    desc: '从 0 到第一笔收入，再到月入六位数。完整的一人公司方法论：产品定义、冷启动、定价、自动化运营。',
+    color: '#F59E0B',
+  },
+  {
+    icon: '⚡',
+    title: 'AI 工具深度评测',
+    desc: '每周精选 3-5 款最值得超级个体关注的 AI 工具，附带真实使用场景和效率提升数据，而非泛泛介绍。',
+    color: '#3B82F6',
+  },
+  {
+    icon: '🤝',
+    title: '同频社群网络',
+    desc: '500+ 位同在路上的超级个体。互相连接、协作、内推机会。你的下一个商业伙伴可能就在这里。',
+    color: '#EC4899',
+  },
+  {
+    icon: '💰',
+    title: '个人 IP 变现路径',
+    desc: '从第一篇文章到个人品牌，再到产品和服务体系。我们帮你规划清晰的变现路线，避免踩过的那些坑。',
+    color: '#EF4444',
+  },
+];
+---
+
+<section class="features section" id="features">
+  <div class="container">
+    <div class="features__island island">
+      <div class="features__header" data-animate>
+        <p class="section-eyebrow">核心价值</p>
+        <h2 class="section-title">超级个体需要的，<br />这里都有</h2>
+        <p class="section-desc">不是碎片化的内容堆砌，而是一套完整的超级个体成长体系，覆盖认知、能力、变现的全链路。</p>
+      </div>
+
+      <div class="features__grid">
+        {features.map((f, i) => (
+          <div class="features__card" data-animate style={`--delay: ${i * 80}ms`}>
+            <div class="features__icon" style={`background: ${f.color}18; color: ${f.color}`}>
+              {f.icon}
+            </div>
+            <h3 class="features__title">{f.title}</h3>
+            <p class="features__desc">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features__island {
+    padding: 80px 64px;
+  }
+
+  .features__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .features__header .section-desc {
+    margin: 0 auto;
+  }
+
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .features__card {
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+
+  .features__card:hover {
+    background: white;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: rgba(109,40,217,0.1);
+  }
+
+  .features__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .features__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .features__desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.7;
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease var(--delay, 0ms), transform 0.6s ease var(--delay, 0ms);
+  }
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1024px) {
+    .features__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .features__island {
+      padding: 40px 16px;
+    }
+    .features__grid {
+      grid-template-columns: 1fr;
+    }
+    .features__header {
+      margin-bottom: 40px;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.features [data-animate]').forEach(el => observer.observe(el));
+</script>

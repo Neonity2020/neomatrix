@@ -1,0 +1,209 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: '定义你的超级技能',
+    desc: '通过能力评估和市场分析，找到你的高价值核心能力——那个让你在市场上真正稀缺的组合。不是什么都学，而是找到你的独特叠加点。',
+    tags: ['能力诊断', 'AI 辅助分析', '市场定位'],
+    icon: '🎯',
+  },
+  {
+    num: '02',
+    title: '建立个人操作系统',
+    desc: '搭建你的知识管理、时间管理和内容生产系统。用 AI 工具把每天的生产力提升 3-5 倍，把有限的时间花在真正有复利的事情上。',
+    tags: ['Second Brain', 'AI 工具栈', '效率系统'],
+    icon: '⚙️',
+  },
+  {
+    num: '03',
+    title: '启动你的一人公司',
+    desc: '从第一个付费用户开始，用最小可行产品验证你的商业模式。不需要融资，不需要团队，只需要一台电脑和正确的方法论。',
+    tags: ['MVP 方法论', '冷启动策略', '定价体系'],
+    icon: '🚀',
+  },
+  {
+    num: '04',
+    title: '放大与自动化',
+    desc: '当核心产品跑通后，用自动化工具和 AI 替代重复劳动，让收入不再和时间完全挂钩，真正实现规模化的个人商业。',
+    tags: ['自动化运营', '被动收入', '个人 IP 矩阵'],
+    icon: '📈',
+  },
+];
+---
+
+<section class="how section" id="how-it-works">
+  <div class="container">
+    <div class="how__island island">
+      <div class="how__header" data-animate>
+        <p class="section-eyebrow">成长路径</p>
+        <h2 class="section-title">从 0 到超级个体，<br />四步走完</h2>
+        <p class="section-desc">不是鸡汤，是可执行的路线图。每一步都有具体的方法、工具和检查点。</p>
+      </div>
+
+      <div class="how__steps">
+        {steps.map((step, i) => (
+          <div class="how__step" data-animate style={`--delay: ${i * 120}ms`}>
+            <div class="how__step-left">
+              <div class="how__step-num">{step.num}</div>
+              <div class="how__step-line" aria-hidden="true"></div>
+            </div>
+            <div class="how__step-content">
+              <div class="how__step-icon">{step.icon}</div>
+              <h3 class="how__step-title">{step.title}</h3>
+              <p class="how__step-desc">{step.desc}</p>
+              <div class="how__step-tags">
+                {step.tags.map(tag => (
+                  <span class="tag tag--primary">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="how__cta" data-animate>
+        <a href="#pricing" class="btn btn--primary">开始我的超级个体之旅 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how__island {
+    padding: 80px 64px;
+  }
+
+  .how__header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .how__header .section-desc {
+    margin: 0 auto;
+  }
+
+  .how__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 760px;
+    margin: 0 auto 56px;
+  }
+
+  .how__step {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .how__step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .how__step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(109,40,217,0.3);
+  }
+
+  .how__step-line {
+    width: 2px;
+    flex: 1;
+    min-height: 40px;
+    background: linear-gradient(to bottom, var(--primary-pale), transparent);
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .how__step:last-child .how__step-line {
+    display: none;
+  }
+
+  .how__step-content {
+    padding-bottom: 48px;
+    flex: 1;
+  }
+
+  .how__step:last-child .how__step-content {
+    padding-bottom: 0;
+  }
+
+  .how__step-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .how__step-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .how__step-desc {
+    font-size: 15px;
+    color: var(--gray-500);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .how__step-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .how__cta {
+    text-align: center;
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease var(--delay, 0ms), transform 0.6s ease var(--delay, 0ms);
+  }
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .how__island {
+      padding: 40px 16px;
+    }
+    .how__step {
+      gap: 20px;
+    }
+    .how__step-title {
+      font-size: 18px;
+    }
+    .how__header {
+      margin-bottom: 48px;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.how [data-animate]').forEach(el => observer.observe(el));
+</script>

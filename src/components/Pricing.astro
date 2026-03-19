@@ -1,0 +1,264 @@
+---
+const plans = [
+  {
+    name: '探索者',
+    price: '￥199',
+    period: '/ 月',
+    desc: '适合刚开始探索超级个体路径的人，先感受再深入。',
+    features: [
+      '每周精选 AI 工具评测通讯',
+      '超级个体成长资源库',
+      '社群基础访问权限',
+      '每月 1 次 AMA 直播',
+      '新矩阵指数（月度报告）',
+    ],
+    cta: '开始探索',
+    highlighted: false,
+    color: '#6B6B6B',
+  },
+  {
+    name: '超级个体',
+    price: '￥599',
+    period: '/ 月',
+    desc: '给真正想做出改变的人。方法论 + 工具 + 社群，一次到位。',
+    features: [
+      '包含探索者全部权益',
+      '完整超级个体成长课程体系',
+      '一人公司实战手册（持续更新）',
+      '每周精英小组讨论',
+      '每月 1v1 成长复盘（50 分钟）',
+      '专属会员内推网络',
+      '历史所有内容无限访问',
+    ],
+    cta: '立即加入',
+    highlighted: true,
+    badge: '最受欢迎',
+    color: '#6D28D9',
+  },
+  {
+    name: '矩阵精英',
+    price: '￥1,999',
+    period: '/ 月',
+    desc: '给想要快速跨越瓶颈、寻求深度支持的超级个体。',
+    features: [
+      '包含超级个体全部权益',
+      '每月 2 次 1v1 深度辅导',
+      '个人 IP 和商业模式定制规划',
+      '优先参与 Beta 新功能',
+      '精英圈子专属访问',
+      '商业合作对接优先权',
+    ],
+    cta: '申请加入',
+    highlighted: false,
+    color: '#1A1A1A',
+  },
+];
+---
+
+<section class="pricing section" id="pricing">
+  <div class="container">
+    <div class="pricing__island island">
+      <div class="pricing__header" data-animate>
+        <p class="section-eyebrow">加入方案</p>
+        <h2 class="section-title">投资自己，是最高回报率的决定</h2>
+        <p class="section-desc">一杯咖啡的钱，换来系统性成长加速。会员平均在 6 个月内收回全年会费。</p>
+      </div>
+
+      <div class="pricing__grid">
+        {plans.map((plan, i) => (
+          <div class:list={['pricing__card', plan.highlighted && 'pricing__card--highlighted']} data-animate style={`--delay: ${i * 100}ms`}>
+            {plan.badge && <div class="pricing__badge">{plan.badge}</div>}
+            <div class="pricing__plan-name">{plan.name}</div>
+            <div class="pricing__price">
+              <span class="pricing__amount">{plan.price}</span>
+              <span class="pricing__period">{plan.period}</span>
+            </div>
+            <p class="pricing__desc">{plan.desc}</p>
+
+            <ul class="pricing__features">
+              {plan.features.map(f => (
+                <li class="pricing__feature">
+                  <span class="pricing__check" style={`color: ${plan.highlighted ? 'var(--primary)' : '#10B981'}`}>✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <a href="#" class:list={['btn', plan.highlighted ? 'btn--primary' : 'btn--ghost']} style="width:100%;justify-content:center;margin-top:auto;">
+              {plan.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div class="pricing__note" data-animate>
+        <p>所有方案均支持 7 天无理由退款 · 随时取消，无违约金 · 可申请学生折扣</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing__island {
+    padding: 80px 64px;
+  }
+
+  .pricing__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .pricing__header .section-desc {
+    margin: 0 auto;
+  }
+
+  .pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .pricing__card {
+    background: var(--gray-50);
+    border-radius: var(--radius-xl);
+    padding: 36px 28px;
+    border: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .pricing__card--highlighted {
+    background: white;
+    border-color: var(--primary);
+    border-width: 2px;
+    box-shadow: 0 16px 60px rgba(109,40,217,0.15);
+    transform: scale(1.03);
+  }
+
+  .pricing__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .pricing__plan-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+  }
+
+  .pricing__card--highlighted .pricing__plan-name {
+    color: var(--primary);
+  }
+
+  .pricing__price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .pricing__amount {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--black);
+  }
+
+  .pricing__period {
+    font-size: 14px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+
+  .pricing__desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+
+  .pricing__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .pricing__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+
+  .pricing__check {
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pricing__note {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease var(--delay, 0ms), transform 0.6s ease var(--delay, 0ms);
+  }
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1024px) {
+    .pricing__grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .pricing__card--highlighted {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing__island {
+      padding: 40px 16px;
+    }
+    .pricing__header {
+      margin-bottom: 40px;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.pricing [data-animate]').forEach(el => observer.observe(el));
+</script>

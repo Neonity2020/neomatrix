@@ -1,0 +1,569 @@
+---
+---
+
+<section class="hero section" id="hero">
+  <div class="container">
+    <div class="hero__island island">
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__tag" data-animate>
+          <span class="tag tag--primary">🔮 AI 时代新范式</span>
+        </div>
+
+        <h1 class="hero__title" data-animate>
+          成为你这个时代的
+          <span class="hero__accent">超级个体</span>
+        </h1>
+
+        <p class="hero__desc" data-animate>
+          一个人就是一支军队。新矩阵俱乐部为超级个体提供系统化成长方法论、前沿 AI 工具和同频社群，帮你在 AI 时代独立撬动世界。
+        </p>
+
+        <div class="hero__actions" data-animate>
+          <a href="#pricing" class="btn btn--primary">立即加入俱乐部 →</a>
+          <a href="#how-it-works" class="btn btn--ghost">查看成长路径</a>
+        </div>
+
+        <div class="hero__social-proof" data-animate>
+          <div class="hero__avatars">
+            <div class="hero__avatar" style="background: linear-gradient(135deg,#6D28D9,#8B5CF6)">L</div>
+            <div class="hero__avatar" style="background: linear-gradient(135deg,#10B981,#34D399)">W</div>
+            <div class="hero__avatar" style="background: linear-gradient(135deg,#F59E0B,#FCD34D)">Z</div>
+            <div class="hero__avatar" style="background: linear-gradient(135deg,#EF4444,#F87171)">C</div>
+            <div class="hero__avatar" style="background: linear-gradient(135deg,#3B82F6,#60A5FA)">M</div>
+          </div>
+          <div class="hero__social-text">
+            <div class="hero__stars" aria-label="五星好评">★★★★★</div>
+            <span>已有 <strong>1,200+</strong> 位超级个体正在成长</span>
+          </div>
+        </div>
+
+        <div class="hero__stats" data-animate>
+          {[
+            { value: '1,200+', label: '活跃会员' },
+            { value: '300+', label: 'AI 工具评测' },
+            { value: '80+', label: '实战方法论' },
+            { value: '96%', label: '续费率' },
+          ].map(s => (
+            <div class="hero__stat">
+              <div class="hero__stat-value">{s.value}</div>
+              <div class="hero__stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="hero__visual" data-animate>
+          <div class="hero__visual-inner">
+            <div class="hero__notif hero__notif--1">
+              <div class="hero__notif-icon">🚀</div>
+              <div>
+                <div class="hero__notif-title">月收入突破</div>
+                <div class="hero__notif-sub">@小林 首月变现 ¥23,800</div>
+              </div>
+              <span class="hero__notif-badge">刚刚</span>
+            </div>
+
+            <div class="hero__card stripe-shadow">
+              <div class="hero__card-topbar">
+                <span class="hero__card-dot" style="background:#FF5F57"></span>
+                <span class="hero__card-dot" style="background:#FFBD2E"></span>
+                <span class="hero__card-dot" style="background:#28C840"></span>
+                <span class="hero__card-url">neomatrix.club / 我的超级个体仪表盘</span>
+              </div>
+              <div class="hero__card-body">
+                <div class="hero__card-sidebar">
+                  <div class="hero__sidebar-logo">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                      <rect width="32" height="32" rx="8" fill="#6D28D9"/>
+                      <text x="6" y="23" font-size="18" font-family="Arial" font-weight="900" fill="white">N</text>
+                    </svg>
+                  </div>
+                  {['仪表盘', '成长记录', 'AI 工具箱', '社群动态', '课程体系'].map((item, i) => (
+                    <div class:list={['hero__nav-item', i === 0 && 'active']}>{item}</div>
+                  ))}
+                </div>
+                <div class="hero__card-main">
+                  <div class="hero__card-stats">
+                    {[
+                      { label: '本月学习时长', value: '42h', change: '+15%', color: '#6D28D9' },
+                      { label: '副业收入', value: '¥18.6K', change: '+38%', color: '#10B981' },
+                      { label: '技能积累', value: '127', change: '+9个', color: '#F59E0B' },
+                    ].map(stat => (
+                      <div class="hero__stat-card">
+                        <div class="hero__stat-card-label">{stat.label}</div>
+                        <div class="hero__stat-card-value">{stat.value}</div>
+                        <span class="hero__stat-card-change" style={`color: ${stat.color}`}>{stat.change}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div class="hero__chart">
+                    <div class="hero__chart-bars">
+                      {[30, 48, 42, 65, 50, 80, 62, 90, 55, 85, 72, 100].map((h) => (
+                        <div class="hero__chart-bar" style={`height: ${h}%`}></div>
+                      ))}
+                    </div>
+                    <div class="hero__chart-label">过去 12 个月成长曲线</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero__notif hero__notif--2">
+              <div class="hero__notif-icon">⚡</div>
+              <div>
+                <div class="hero__notif-title">新工具上线</div>
+                <div class="hero__notif-sub">Claude 4 深度评测已发布</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__partners" data-animate>
+          <p class="hero__partners-label">被这些领域的人选择</p>
+          <div class="hero__partners-list">
+            {['产品经理', '独立开发者', '内容创作者', '咨询顾问', '设计师', '自由职业者'].map(r => (
+              <span class="hero__role-tag">{r}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero__island {
+    padding: 80px 64px 72px;
+    background: #FAFAF9;
+  }
+
+  .hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: floatOrb 8s ease-in-out infinite;
+  }
+
+  .hero__orb--1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(109, 40, 217, 0.12) 0%, transparent 70%);
+    top: -160px;
+    right: -100px;
+  }
+
+  .hero__orb--2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    bottom: 80px;
+    left: -80px;
+    animation-delay: -4s;
+  }
+
+  .hero__orb--3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.07) 0%, transparent 70%);
+    top: 40%;
+    left: 40%;
+    animation-delay: -2s;
+  }
+
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -30px); }
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__tag {
+    margin-bottom: 28px;
+  }
+
+  .hero__title {
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+    color: var(--black);
+  }
+
+  .hero__accent {
+    color: var(--primary);
+    display: block;
+  }
+
+  .hero__desc {
+    font-size: 18px;
+    color: var(--gray-500);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero__social-proof {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .hero__avatars {
+    display: flex;
+  }
+
+  .hero__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    margin-left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .hero__avatar:first-child {
+    margin-left: 0;
+  }
+
+  .hero__social-text {
+    text-align: left;
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+
+  .hero__stars {
+    color: #FFB800;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+  }
+
+  .hero__stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 72px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero__stat {
+    text-align: center;
+  }
+
+  .hero__stat-value {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--primary);
+  }
+
+  .hero__stat-label {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+
+  /* Dashboard visual */
+  .hero__visual {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 72px;
+  }
+
+  .hero__visual-inner {
+    position: relative;
+    padding: 24px 0;
+  }
+
+  .hero__notif {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    font-size: 13px;
+    z-index: 2;
+    white-space: nowrap;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .hero__notif--1 {
+    top: 0;
+    left: -20px;
+    animation-delay: 0s;
+  }
+
+  .hero__notif--2 {
+    bottom: 40px;
+    right: -20px;
+    animation-delay: -3s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero__notif-icon { font-size: 20px; }
+  .hero__notif-title { font-weight: 600; color: var(--black); margin-bottom: 2px; }
+  .hero__notif-sub { color: var(--gray-500); font-size: 12px; }
+  .hero__notif-badge {
+    background: var(--primary-pale);
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 100px;
+    margin-left: 8px;
+  }
+
+  .hero__card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 32px 80px rgba(109,40,217,0.15);
+    overflow: hidden;
+  }
+
+  .hero__card-topbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 18px;
+    background: #F5F5F5;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .hero__card-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .hero__card-url {
+    margin-left: 12px;
+    font-size: 12px;
+    color: var(--gray-500);
+    background: white;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .hero__card-body {
+    display: flex;
+    min-height: 280px;
+  }
+
+  .hero__card-sidebar {
+    width: 140px;
+    background: #FAFAFA;
+    border-right: 1px solid rgba(0,0,0,0.06);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .hero__sidebar-logo {
+    margin-bottom: 20px;
+  }
+
+  .hero__nav-item {
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-500);
+    cursor: default;
+    transition: background 0.2s;
+  }
+
+  .hero__nav-item.active {
+    background: var(--primary-pale);
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .hero__card-main {
+    flex: 1;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .hero__card-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .hero__stat-card {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .hero__stat-card-label {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-bottom: 4px;
+  }
+
+  .hero__stat-card-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--black);
+    letter-spacing: -0.02em;
+  }
+
+  .hero__stat-card-change {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .hero__chart {
+    background: var(--gray-50);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,0.05);
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .hero__chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 70px;
+    flex: 1;
+  }
+
+  .hero__chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 4px 4px 0 0;
+    min-width: 0;
+    opacity: 0.8;
+    animation: growBar 1s ease-out forwards;
+    transform-origin: bottom;
+  }
+
+  @keyframes growBar {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+  .hero__chart-label {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 8px;
+    text-align: left;
+  }
+
+  /* Partners / roles */
+  .hero__partners {
+    text-align: center;
+  }
+
+  .hero__partners-label {
+    font-size: 12px;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .hero__partners-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero__role-tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-500);
+    background: var(--gray-100);
+    border-radius: 100px;
+    padding: 6px 16px;
+    transition: all 0.2s;
+  }
+
+  .hero__role-tag:hover {
+    background: var(--primary-pale);
+    color: var(--primary);
+  }
+
+  /* scroll animations */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .hero__island {
+      padding: 40px 16px;
+    }
+    .hero__card-sidebar { display: none; }
+    .hero__card-stats { grid-template-columns: 1fr 1fr; }
+    .hero__notif--1 { left: 0; top: -10px; }
+    .hero__notif--2 { right: 0; }
+    .hero__stats { gap: 24px; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+</script>
