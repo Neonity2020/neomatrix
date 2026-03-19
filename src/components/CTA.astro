@@ -1,4 +1,7 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="cta section">
@@ -7,19 +10,16 @@
       <div class="cta__orb cta__orb--1" aria-hidden="true"></div>
       <div class="cta__orb cta__orb--2" aria-hidden="true"></div>
       <div class="cta__inner" data-animate>
-        <span class="tag tag--primary" style="margin-bottom: 24px;">现在是最好的时机</span>
-        <h2 class="cta__title">
-          超级个体时代<br />
-          已经开始了
-        </h2>
+        <span class="tag tag--primary" style="margin-bottom: 24px;">{t('cta.tag')}</span>
+        <h2 class="cta__title" set:html={t('cta.title')}></h2>
         <p class="cta__desc">
-          AI 正在重写规则，窗口期不会永远开着。现在加入的人，会比晚一年加入的人多走一大段路。
+          {t('cta.desc')}
         </p>
         <div class="cta__actions">
-          <a href="#pricing" class="btn btn--primary">立即加入新矩阵俱乐部 →</a>
-          <a href="#features" class="btn btn--ghost">先了解一下</a>
+          <a href="#pricing" class="btn btn--primary">{t('cta.btnPrimary')}</a>
+          <a href="#features" class="btn btn--ghost">{t('cta.btnGhost')}</a>
         </div>
-        <p class="cta__guarantee">7 天无理由退款 · 随时取消 · 超过 1,200 人已加入</p>
+        <p class="cta__guarantee">{t('cta.guarantee')}</p>
       </div>
     </div>
   </div>

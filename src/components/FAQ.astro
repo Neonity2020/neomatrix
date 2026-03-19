@@ -1,42 +1,16 @@
 ---
-const faqs = [
-  {
-    q: '我没有什么特别的技能，适合加入吗？',
-    a: '这正是很多人加入的原因。俱乐部里有系统的能力诊断工具，帮你找到你的高价值组合——很多时候我们低估了自己已有的知识和经验的市场价值。',
-  },
-  {
-    q: '加入后多久能看到效果？',
-    a: '因人而异，但大多数会员在第一个月内就会有具体的认知转变和行动计划。看到收入变化通常在 3-6 个月，这取决于你投入的精力和执行力。我们不承诺速成，但承诺你走在正确的路上。',
-  },
-  {
-    q: '这和其他成长社群有什么不同？',
-    a: '大部分社群给你的是内容，我们给你的是系统。我们不堆砌信息，而是提供可执行的方法论、真实的工具评测和一群真的在做事的人。我们的重点是帮你找到和执行你自己的路径，而不是照搬别人的成功故事。',
-  },
-  {
-    q: '内容更新频率是怎样的？',
-    a: '每周发布 AI 工具评测通讯，每月更新实战方法论内容，每季度出一份深度行业报告。核心课程体系持续迭代，所有历史内容都可访问。',
-  },
-  {
-    q: '我是全职工作，有时间参与吗？',
-    a: '俱乐部的设计前提就是"时间有限的人"。每周核心内容消化需要 2-3 小时，全部异步，没有强制直播打卡。你按自己的节奏来，我们有完整的异步资料支持。',
-  },
-  {
-    q: '可以开发票吗？支持什么支付方式？',
-    a: '支持微信支付、支付宝，企业用户可开增值税发票。如需企业团购，联系我们获取定制方案。',
-  },
-  {
-    q: '退款政策是什么？',
-    a: '加入后 7 天内，如果你觉得不合适，全额退款，不问原因。之后按剩余天数比例退款。我们对自己的内容质量有信心，所以才能这么说。',
-  },
-];
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const faqs = (t('faq.items') as unknown) as any[];
 ---
 
 <section class="faq section" id="faq">
   <div class="container">
     <div class="faq__island island">
       <div class="faq__header" data-animate>
-        <p class="section-eyebrow">常见问题</p>
-        <h2 class="section-title">你可能想问的问题</h2>
+        <p class="section-eyebrow">{t('faq.eyebrow')}</p>
+        <h2 class="section-title">{t('faq.title')}</h2>
       </div>
 
       <div class="faq__list">

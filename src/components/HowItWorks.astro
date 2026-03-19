@@ -1,43 +1,17 @@
 ---
-const steps = [
-  {
-    num: '01',
-    title: '定义你的超级技能',
-    desc: '通过能力评估和市场分析，找到你的高价值核心能力——那个让你在市场上真正稀缺的组合。不是什么都学，而是找到你的独特叠加点。',
-    tags: ['能力诊断', 'AI 辅助分析', '市场定位'],
-    icon: '🎯',
-  },
-  {
-    num: '02',
-    title: '建立个人操作系统',
-    desc: '搭建你的知识管理、时间管理和内容生产系统。用 AI 工具把每天的生产力提升 3-5 倍，把有限的时间花在真正有复利的事情上。',
-    tags: ['Second Brain', 'AI 工具栈', '效率系统'],
-    icon: '⚙️',
-  },
-  {
-    num: '03',
-    title: '启动你的一人公司',
-    desc: '从第一个付费用户开始，用最小可行产品验证你的商业模式。不需要融资，不需要团队，只需要一台电脑和正确的方法论。',
-    tags: ['MVP 方法论', '冷启动策略', '定价体系'],
-    icon: '🚀',
-  },
-  {
-    num: '04',
-    title: '放大与自动化',
-    desc: '当核心产品跑通后，用自动化工具和 AI 替代重复劳动，让收入不再和时间完全挂钩，真正实现规模化的个人商业。',
-    tags: ['自动化运营', '被动收入', '个人 IP 矩阵'],
-    icon: '📈',
-  },
-];
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const steps = (t('how.steps') as unknown) as any[];
 ---
 
 <section class="how section" id="how-it-works">
   <div class="container">
     <div class="how__island island">
       <div class="how__header" data-animate>
-        <p class="section-eyebrow">成长路径</p>
-        <h2 class="section-title">从 0 到超级个体，<br />四步走完</h2>
-        <p class="section-desc">不是鸡汤，是可执行的路线图。每一步都有具体的方法、工具和检查点。</p>
+        <p class="section-eyebrow">{t('how.eyebrow')}</p>
+        <h2 class="section-title" set:html={t('how.title')}></h2>
+        <p class="section-desc">{t('how.desc')}</p>
       </div>
 
       <div class="how__steps">
@@ -62,7 +36,7 @@ const steps = [
       </div>
 
       <div class="how__cta" data-animate>
-        <a href="#pricing" class="btn btn--primary">开始我的超级个体之旅 →</a>
+        <a href="#pricing" class="btn btn--primary">{t('how.cta')}</a>
       </div>
     </div>
   </div>

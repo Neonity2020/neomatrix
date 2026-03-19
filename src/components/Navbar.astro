@@ -1,9 +1,12 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header class="navbar">
   <div class="navbar__inner container">
-    <a href="/" class="navbar__logo">
+    <a href={lang === 'en' ? '/en' : '/'} class="navbar__logo">
       <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
         <rect width="32" height="32" rx="8" fill="#6D28D9"/>
         <text x="6" y="23" font-size="18" font-family="Arial" font-weight="900" fill="white">N</text>
@@ -12,14 +15,17 @@
     </a>
 
     <nav class="navbar__nav">
-      <a href="#features" class="navbar__link">核心价值</a>
-      <a href="#how-it-works" class="navbar__link">成长路径</a>
-      <a href="#testimonials" class="navbar__link">会员故事</a>
-      <a href="#pricing" class="navbar__link">加入方案</a>
+      <a href="#features" class="navbar__link">{t('nav.features')}</a>
+      <a href="#how-it-works" class="navbar__link">{t('nav.howItWorks')}</a>
+      <a href="#testimonials" class="navbar__link">{t('nav.testimonials')}</a>
+      <a href="#pricing" class="navbar__link">{t('nav.pricing')}</a>
     </nav>
 
     <div class="navbar__actions">
-      <a href="#pricing" class="btn btn--primary btn--sm">立即加入</a>
+      <a href={lang === 'zh' ? '/en' : '/'} class="navbar__link" style="margin-right: 20px; font-weight: 700;">
+        {lang === 'zh' ? 'EN' : '中文'}
+      </a>
+      <a href="#pricing" class="btn btn--primary btn--sm">{t('nav.join')}</a>
     </div>
 
     <button class="navbar__hamburger" aria-label="菜单" id="hamburger">
@@ -28,11 +34,12 @@
   </div>
 
   <div class="navbar__mobile-menu" id="mobileMenu">
-    <a href="#features">核心价值</a>
-    <a href="#how-it-works">成长路径</a>
-    <a href="#testimonials">会员故事</a>
-    <a href="#pricing">加入方案</a>
-    <a href="#pricing" class="btn btn--primary" style="margin-top:8px;text-align:center;">立即加入</a>
+    <a href={lang === 'zh' ? '/en' : '/'} style="color: var(--primary); font-weight: 700;">🌐 {lang === 'zh' ? 'Switch to English' : '切换至中文'}</a>
+    <a href="#features">{t('nav.features')}</a>
+    <a href="#how-it-works">{t('nav.howItWorks')}</a>
+    <a href="#testimonials">{t('nav.testimonials')}</a>
+    <a href="#pricing">{t('nav.pricing')}</a>
+    <a href="#pricing" class="btn btn--primary" style="margin-top:8px;text-align:center;">{t('nav.join')}</a>
   </div>
 </header>
 

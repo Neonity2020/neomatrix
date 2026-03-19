@@ -1,4 +1,7 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="hero section" id="hero">
@@ -10,21 +13,21 @@
 
       <div class="hero__inner">
         <div class="hero__tag" data-animate>
-          <span class="tag tag--primary">🔮 AI 时代新范式</span>
+          <span class="tag tag--primary">{t('hero.tag')}</span>
         </div>
 
         <h1 class="hero__title" data-animate>
-          成为你这个时代的
-          <span class="hero__accent">超级个体</span>
+          {t('hero.title1')}
+          <span class="hero__accent">{t('hero.titleAccent')}</span>
         </h1>
 
         <p class="hero__desc" data-animate>
-          一个人就是一支军队。新矩阵俱乐部为超级个体提供系统化成长方法论、前沿 AI 工具和同频社群，帮你在 AI 时代独立撬动世界。
+          {t('hero.desc')}
         </p>
 
         <div class="hero__actions" data-animate>
-          <a href="#pricing" class="btn btn--primary">立即加入俱乐部 →</a>
-          <a href="#how-it-works" class="btn btn--ghost">查看成长路径</a>
+          <a href="#pricing" class="btn btn--primary">{t('hero.btnPrimary')}</a>
+          <a href="#how-it-works" class="btn btn--ghost">{t('hero.btnGhost')}</a>
         </div>
 
         <div class="hero__social-proof" data-animate>
@@ -37,16 +40,16 @@
           </div>
           <div class="hero__social-text">
             <div class="hero__stars" aria-label="五星好评">★★★★★</div>
-            <span>已有 <strong>1,200+</strong> 位超级个体正在成长</span>
+            <span set:html={t('hero.socialText')}></span>
           </div>
         </div>
 
         <div class="hero__stats" data-animate>
           {[
-            { value: '1,200+', label: '活跃会员' },
-            { value: '300+', label: 'AI 工具评测' },
-            { value: '80+', label: '实战方法论' },
-            { value: '96%', label: '续费率' },
+            { value: '1,200+', label: t('hero.stat1.label') },
+            { value: '300+', label: t('hero.stat2.label') },
+            { value: '80+', label: t('hero.stat3.label') },
+            { value: '96%', label: t('hero.stat4.label') },
           ].map(s => (
             <div class="hero__stat">
               <div class="hero__stat-value">{s.value}</div>
@@ -60,10 +63,10 @@
             <div class="hero__notif hero__notif--1">
               <div class="hero__notif-icon">🚀</div>
               <div>
-                <div class="hero__notif-title">月收入突破</div>
-                <div class="hero__notif-sub">@小林 首月变现 ¥23,800</div>
+                <div class="hero__notif-title">{t('hero.notif1.title')}</div>
+                <div class="hero__notif-sub">{t('hero.notif1.sub')}</div>
               </div>
-              <span class="hero__notif-badge">刚刚</span>
+              <span class="hero__notif-badge">{t('hero.notif1.badge')}</span>
             </div>
 
             <div class="hero__card stripe-shadow">
@@ -71,7 +74,7 @@
                 <span class="hero__card-dot" style="background:#FF5F57"></span>
                 <span class="hero__card-dot" style="background:#FFBD2E"></span>
                 <span class="hero__card-dot" style="background:#28C840"></span>
-                <span class="hero__card-url">neomatrix.club / 我的超级个体仪表盘</span>
+                <span class="hero__card-url">{t('hero.card.url')}</span>
               </div>
               <div class="hero__card-body">
                 <div class="hero__card-sidebar">
@@ -81,16 +84,16 @@
                       <text x="6" y="23" font-size="18" font-family="Arial" font-weight="900" fill="white">N</text>
                     </svg>
                   </div>
-                  {['仪表盘', '成长记录', 'AI 工具箱', '社群动态', '课程体系'].map((item, i) => (
+                  {[`${t('hero.card.nav1')}`, `${t('hero.card.nav2')}`, `${t('hero.card.nav3')}`, `${t('hero.card.nav4')}`, `${t('hero.card.nav5')}`].map((item, i) => (
                     <div class:list={['hero__nav-item', i === 0 && 'active']}>{item}</div>
                   ))}
                 </div>
                 <div class="hero__card-main">
                   <div class="hero__card-stats">
                     {[
-                      { label: '本月学习时长', value: '42h', change: '+15%', color: '#6D28D9' },
-                      { label: '副业收入', value: '¥18.6K', change: '+38%', color: '#10B981' },
-                      { label: '技能积累', value: '127', change: '+9个', color: '#F59E0B' },
+                      { label: t('hero.card.stat1.label'), value: t('hero.card.stat1.value'), change: t('hero.card.stat1.change'), color: '#6D28D9' },
+                      { label: t('hero.card.stat2.label'), value: t('hero.card.stat2.value'), change: t('hero.card.stat2.change'), color: '#10B981' },
+                      { label: t('hero.card.stat3.label'), value: t('hero.card.stat3.value'), change: t('hero.card.stat3.change'), color: '#F59E0B' },
                     ].map(stat => (
                       <div class="hero__stat-card">
                         <div class="hero__stat-card-label">{stat.label}</div>
@@ -105,7 +108,7 @@
                         <div class="hero__chart-bar" style={`height: ${h}%`}></div>
                       ))}
                     </div>
-                    <div class="hero__chart-label">过去 12 个月成长曲线</div>
+                    <div class="hero__chart-label">{t('hero.chart.label')}</div>
                   </div>
                 </div>
               </div>
@@ -114,17 +117,17 @@
             <div class="hero__notif hero__notif--2">
               <div class="hero__notif-icon">⚡</div>
               <div>
-                <div class="hero__notif-title">新工具上线</div>
-                <div class="hero__notif-sub">Claude 4 深度评测已发布</div>
+                <div class="hero__notif-title">{t('hero.notif2.title')}</div>
+                <div class="hero__notif-sub">{t('hero.notif2.sub')}</div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="hero__partners" data-animate>
-          <p class="hero__partners-label">被这些领域的人选择</p>
+          <p class="hero__partners-label">{t('hero.partners.label')}</p>
           <div class="hero__partners-list">
-            {['产品经理', '独立开发者', '内容创作者', '咨询顾问', '设计师', '自由职业者'].map(r => (
+            {[t('hero.partners.1'), t('hero.partners.2'), t('hero.partners.3'), t('hero.partners.4'), t('hero.partners.5'), t('hero.partners.6')].map(r => (
               <span class="hero__role-tag">{r}</span>
             ))}
           </div>

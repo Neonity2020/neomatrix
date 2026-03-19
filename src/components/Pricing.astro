@@ -1,67 +1,17 @@
 ---
-const plans = [
-  {
-    name: '探索者',
-    price: '￥199',
-    period: '/ 月',
-    desc: '适合刚开始探索超级个体路径的人，先感受再深入。',
-    features: [
-      '每周精选 AI 工具评测通讯',
-      '超级个体成长资源库',
-      '社群基础访问权限',
-      '每月 1 次 AMA 直播',
-      '新矩阵指数（月度报告）',
-    ],
-    cta: '开始探索',
-    highlighted: false,
-    color: '#6B6B6B',
-  },
-  {
-    name: '超级个体',
-    price: '￥599',
-    period: '/ 月',
-    desc: '给真正想做出改变的人。方法论 + 工具 + 社群，一次到位。',
-    features: [
-      '包含探索者全部权益',
-      '完整超级个体成长课程体系',
-      '一人公司实战手册（持续更新）',
-      '每周精英小组讨论',
-      '每月 1v1 成长复盘（50 分钟）',
-      '专属会员内推网络',
-      '历史所有内容无限访问',
-    ],
-    cta: '立即加入',
-    highlighted: true,
-    badge: '最受欢迎',
-    color: '#6D28D9',
-  },
-  {
-    name: '矩阵精英',
-    price: '￥1,999',
-    period: '/ 月',
-    desc: '给想要快速跨越瓶颈、寻求深度支持的超级个体。',
-    features: [
-      '包含超级个体全部权益',
-      '每月 2 次 1v1 深度辅导',
-      '个人 IP 和商业模式定制规划',
-      '优先参与 Beta 新功能',
-      '精英圈子专属访问',
-      '商业合作对接优先权',
-    ],
-    cta: '申请加入',
-    highlighted: false,
-    color: '#1A1A1A',
-  },
-];
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const plans = (t('pricing.plans') as unknown) as any[];
 ---
 
 <section class="pricing section" id="pricing">
   <div class="container">
     <div class="pricing__island island">
       <div class="pricing__header" data-animate>
-        <p class="section-eyebrow">加入方案</p>
-        <h2 class="section-title">投资自己，是最高回报率的决定</h2>
-        <p class="section-desc">一杯咖啡的钱，换来系统性成长加速。会员平均在 6 个月内收回全年会费。</p>
+        <p class="section-eyebrow">{t('pricing.eyebrow')}</p>
+        <h2 class="section-title">{t('pricing.title')}</h2>
+        <p class="section-desc">{t('pricing.desc')}</p>
       </div>
 
       <div class="pricing__grid">
@@ -92,7 +42,7 @@ const plans = [
       </div>
 
       <div class="pricing__note" data-animate>
-        <p>所有方案均支持 7 天无理由退款 · 随时取消，无违约金 · 可申请学生折扣</p>
+        <p>{t('pricing.note')}</p>
       </div>
     </div>
   </div>

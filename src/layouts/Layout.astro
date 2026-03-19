@@ -1,14 +1,22 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
 }
 
-const { title, description = "新矩阵俱乐部 — 超级个体 · 终身成长 · 一人公司创业。在 AI 时代，成为最强版本的自己。" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { 
+  title = t('layout.title'), 
+  description = t('layout.description') 
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />

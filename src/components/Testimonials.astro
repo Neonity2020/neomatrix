@@ -1,84 +1,32 @@
 ---
-const testimonials = [
-  {
-    name: '陈宇轩',
-    role: '前大厂产品经理 → 独立顾问',
-    quote: '加入俱乐部 6 个月后，我从月薪 2 万的打工人，变成了月收入 5 万的独立顾问。最关键的不是方法论，而是找到了一群真的在做这件事的人。',
-    stars: 5,
-    featured: true,
-    avatar: 'C',
-    color: '#6D28D9',
-  },
-  {
-    name: '林晓雯',
-    role: '设计师 · 内容创作者',
-    quote: '我花了一年时间看碎片化内容，什么都懂一点，什么都做不成。在这里学到的第一件事是：聚焦。现在我有了 3000 付费订阅用户。',
-    stars: 5,
-    featured: false,
-    avatar: 'L',
-    color: '#10B981',
-  },
-  {
-    name: '王浩明',
-    role: '软件工程师 · 副业月入 3 万',
-    quote: '俱乐部里的 AI 工具库太实用了。我用里面推荐的工具组合，把原来要一整天的开发工作压缩到 2 小时，省下的时间全用来做副业。',
-    stars: 5,
-    featured: false,
-    avatar: 'W',
-    color: '#F59E0B',
-  },
-  {
-    name: '张明远',
-    role: '咨询顾问 · 一人公司创始人',
-    quote: '以前觉得一个人做不成事。现在我的公司月流水稳定在 15 万，团队就是我自己 + 几个 AI 工具。思维转变比任何技能都重要。',
-    stars: 5,
-    featured: false,
-    avatar: 'Z',
-    color: '#3B82F6',
-  },
-  {
-    name: '刘若溪',
-    role: '自由撰稿人 · 知识产品创始人',
-    quote: '在这里学会了如何把知识系统化变现。我的第一个付费专栏 3 天卖出 200 份，收入超过了我三个月的工资。这一切发生在我加入三个月后。',
-    stars: 5,
-    featured: false,
-    avatar: '刘',
-    color: '#EC4899',
-  },
-  {
-    name: '赵子豪',
-    role: '前运营总监 → 个人 IP 创业者',
-    quote: '最大的收获不是方法，而是心态。这里有一群真的在做的人，每次想放弃的时候，看看群里大家的动态，就又有力气继续了。',
-    stars: 5,
-    featured: false,
-    avatar: 'Z',
-    color: '#EF4444',
-  },
-];
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const testimonials = (t('testimonials.items') as unknown) as any[];
 ---
 
 <section class="testimonials section" id="testimonials">
   <div class="container">
     <div class="testimonials__island island">
       <div class="testimonials__header" data-animate>
-        <p class="section-eyebrow">会员故事</p>
-        <h2 class="section-title">他们已经先走一步了</h2>
-        <p class="section-desc">真实的会员，真实的改变。不是培训机构的套话，是这些人的真实经历。</p>
+        <p class="section-eyebrow">{t('testimonials.eyebrow')}</p>
+        <h2 class="section-title">{t('testimonials.title')}</h2>
+        <p class="section-desc">{t('testimonials.desc')}</p>
       </div>
 
       <div class="testimonials__grid">
-        {testimonials.map((t, i) => (
-          <div class:list={['testimonials__card', t.featured && 'testimonials__card--featured']} data-animate style={`--delay: ${i * 80}ms`}>
-            {t.featured && <div class="testimonials__badge">精选故事</div>}
-            <div class="testimonials__stars">{'★'.repeat(t.stars)}</div>
-            <p class="testimonials__quote">"{t.quote}"</p>
+        {testimonials.map((item, i) => (
+          <div class:list={['testimonials__card', item.featured && 'testimonials__card--featured']} data-animate style={`--delay: ${i * 80}ms`}>
+            {item.featured && <div class="testimonials__badge">{t('testimonials.badge')}</div>}
+            <div class="testimonials__stars">{'★'.repeat(item.stars)}</div>
+            <p class="testimonials__quote">"{item.quote}"</p>
             <div class="testimonials__author">
-              <div class="testimonials__avatar" style={`background: linear-gradient(135deg, ${t.color}, ${t.color}99)`}>
-                {t.avatar}
+              <div class="testimonials__avatar" style={`background: linear-gradient(135deg, ${item.color}, ${item.color}99)`}>
+                {item.avatar}
               </div>
               <div>
-                <div class="testimonials__name">{t.name}</div>
-                <div class="testimonials__role">{t.role}</div>
+                <div class="testimonials__name">{item.name}</div>
+                <div class="testimonials__role">{item.role}</div>
               </div>
             </div>
           </div>
