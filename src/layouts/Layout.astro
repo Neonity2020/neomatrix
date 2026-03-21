@@ -1,4 +1,6 @@
 ---
+import Navbar from '../components/Navbar.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -21,6 +23,7 @@ const { title, description = "新矩阵俱乐部 — 超级个体 · 终身成�
     <title>{title}</title>
   </head>
   <body>
+    <Navbar />
     <slot />
   </body>
 </html>
